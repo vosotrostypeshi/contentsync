@@ -1,29 +1,29 @@
-
-# Social Post Composer
+# ContentSync - Social Post Composer
 
 A responsive React-based post composer that allows users to create a single post for multiple social media platforms with real-time platform-specific validation.
 
 ## Tech Stack
 
-- **Frontend**: React.js, Bootstrap
+- **Frontend**: React.js, Vite
 - **Backend**: Express.js + Node.js
 - **Database**: MongoDB
-- **API Testing**: Postman
-- **Styling**: CSS / Bootstrap
+- **Styling**: Custom CSS (Vellum Overprint theme)
 
 ## Features
 
 - Create posts for multiple social platforms (Twitter, LinkedIn, Facebook, Instagram)
 - Real-time character count validation per platform
-- Media upload support
+- Media upload support (PNG, JPG, MP4)
 - Responsive design
+- Real-time validation sidebar
+- Drag & drop media upload
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js and npm
-- MongoDB running locally
+- MongoDB (optional, uses in-memory server by default)
 
 ### Installation
 
@@ -37,33 +37,26 @@ A responsive React-based post composer that allows users to create a single post
 
 ### Running the Application
 
-1. Start MongoDB locally
-2. Start the server:
-   ```bash
-   cd server && npm run dev
-   ```
-3. Start the client in another terminal:
-   ```bash
-   cd client && npm start
-   ```
-
-Or use concurrently to start both:
+- Start both server and client with:
 ```bash
 npm run dev
 ```
+Or start separately:
+1. Server: `cd server && npm run dev` (runs on port 5000)
+2. Client: `cd client && npm run dev` (runs on port 5173)
 
 ## Folder Structure
 
 ```
 social-post-composer/
-├── client/                  (React)
+├── client/                  (React Frontend)
 │   ├── public/
 │   └── src/
 │       ├── components/
 │       ├── services/
 │       ├── App.jsx
-│       └── index.js
-├── server/
+│       └── main.jsx
+├── server/                  (Express Backend)
 │   ├── config/
 │   ├── controllers/
 │   ├── models/
@@ -73,3 +66,8 @@ social-post-composer/
 │   └── server.js
 └── README.md
 ```
+
+## Deployment
+
+- **Frontend**: Deployed on Vercel
+- **Backend**: Deployed on Render
