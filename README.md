@@ -23,7 +23,7 @@ A responsive React-based post composer that allows users to create a single post
 ### Prerequisites
 
 - Node.js and npm
-- MongoDB (optional, uses in-memory server by default)
+- MongoDB (optional, uses in-memory server by default for local development)
 
 ### Installation
 
@@ -69,5 +69,46 @@ social-post-composer/
 
 ## Deployment
 
-- **Frontend**: Deployed on Vercel
-- **Backend**: Deployed on Render
+### 🚀 Deploy Backend to Render
+
+1. **Sign up/login to Render** at https://render.com
+2. **Create a new Web Service**:
+   - Go to "New" > "Web Service"
+   - Connect your GitHub account and select the `contentsync` repository
+3. **Configure the Web Service**:
+   - **Name**: `contentsync-backend` (or your preferred name)
+   - **Root Directory**: `server`
+   - **Environment**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+4. **Add Environment Variables (in Render dashboard)**:
+   - `PORT`: Render will set this automatically, but you can use `10000` if needed
+   - `FRONTEND_URL`: `https://your-vercel-app-url.vercel.app` (update once frontend is deployed)
+   - **Optional: MongoDB Atlas** (for persistent data):
+     - `MONGO_URI`: Your MongoDB Atlas connection string (make sure to whitelist Render's IPs)
+5. **Click "Create Web Service"** - wait a few minutes for it to deploy!
+6. **Copy your Render backend URL** (e.g., `https://contentsync-backend.onrender.com`) - you'll need this for the frontend!
+
+### ⚡ Deploy Frontend to Vercel
+
+1. **Sign up/login to Vercel** at https://vercel.com
+2. **Create a new Project**:
+   - Click "Add New" > "Project"
+   - Connect your GitHub account and select the `contentsync` repository
+3. **Configure the Project**:
+   - **Project Name**: `contentsync`
+   - **Root Directory**: `client`
+   - **Framework Preset**: `Vite` (should be auto-detected)
+4. **Add Environment Variable (in Vercel dashboard)**:
+   - `VITE_API_URL`: Your Render backend URL (e.g., `https://contentsync-backend.onrender.com`)
+5. **Click "Deploy"**! Vercel will build and deploy your app automatically!
+
+### 🔗 Connecting Frontend & Backend
+
+Once both are deployed, go back to **Render** and update the `FRONTEND_URL` environment variable to your Vercel app's URL!
+
+### 📝 Notes
+
+- **Media Uploads**: For production, you should use a cloud storage service like AWS S3 or Cloudinary (the current local `uploads/` directory won't work with serverless platforms like Render that don't persist file storage)
+- **In-Memory MongoDB**: This is great for local development, but for production, use MongoDB Atlas!
+
