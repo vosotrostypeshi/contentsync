@@ -9,8 +9,8 @@ import { createPost } from '../services/api.js';
 const PLATFORMS = ['Twitter', 'Instagram', 'LinkedIn', 'Facebook'];
 
 const PostComposer = () => {
-  const [content, setContent] = useState('Designing for the future requires a balance of translucency and structure. #FlashUI #DesignSystem');
-  const [selectedPlatforms, setSelectedPlatforms] = useState(['Twitter', 'LinkedIn']);
+  const [content, setContent] = useState('');
+  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [mediaFiles, setMediaFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState('Ready');
