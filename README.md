@@ -2,6 +2,10 @@
 
 A responsive React-based post composer that allows users to create a single post for multiple social media platforms with real-time platform-specific validation.
 
+## 🌐 Live Demo
+- **Frontend**: https://contentsync-two.vercel.app/
+- **Backend API**: https://contentsync-backend.onrender.com/
+
 ## Tech Stack
 
 - **Frontend**: React.js, Vite
